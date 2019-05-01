@@ -25,5 +25,13 @@ namespace Odev2
         {
             dersler.Add(ders);
         }
+
+        public void dersSil(int index)
+        {
+            dersler.RemoveAt(index);
+
+            foreach (Ders i in dersler)
+                Console.WriteLine(i.Name);
+        }
     }
 }

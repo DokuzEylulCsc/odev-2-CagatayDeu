@@ -130,11 +130,33 @@ namespace Odev2
                 }
             } else if(buttonsType == "bolum")
             {
-                Bolum yeni = new Bolum(textBoxName.Text);
-                selectedFakulte.bolumEkle(yeni);
-                listbolumler.Items.Add(yeni.Name);
-                panel1.Visible = false;
-                textBoxName.Text = null;
+
+                if (textBoxName.TextLength != 0)
+                {
+                    Bolum yeni = new Bolum(textBoxName.Text);
+                    selectedFakulte.bolumEkle(yeni);
+                    listbolumler.Items.Add(yeni.Name);
+                    panel1.Visible = false;
+                    textBoxName.Text = null;
+                }
+                else
+                {
+                    MessageBox.Show("Bölüm ismi zorunludur");
+                }
+            } else if(buttonsType == "ders")
+            {
+                if (textBoxName.TextLength != 0)
+                {
+                    Ders yeni = new Ders(textBoxName.Text);
+                    selectedBolum.dersEkle(yeni);
+                    listdersler.Items.Add(yeni.Name);
+                    panel1.Visible = false;
+                    textBoxName.Text = null;
+                }
+                else
+                {
+                    MessageBox.Show("Ders ismi zorunludur");
+                }
             }
             
             
