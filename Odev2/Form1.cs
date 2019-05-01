@@ -94,6 +94,9 @@ namespace Odev2
 
         private void button3_Click(object sender, EventArgs e)
         {
+            selectedBolum.dersSil(listdersler.SelectedIndex);
+            listdersler.Items.RemoveAt(listdersler.SelectedIndex);
+
             //Fakulte yeni = new Fakulte("deneme");
 
             //deu.fakulteEkle(yeni);
