@@ -1,0 +1,10 @@
+C:\Users\Cagatay\Documents\GitHub\odev-2-CagatayDeu\Odev2\bin\Debug\Odev2.exe.config
+C:\Users\Cagatay\Documents\GitHub\odev-2-CagatayDeu\Odev2\bin\Debug\Odev2.exe
+C:\Users\Cagatay\Documents\GitHub\odev-2-CagatayDeu\Odev2\bin\Debug\Odev2.pdb
+C:\Users\Cagatay\Documents\GitHub\odev-2-CagatayDeu\Odev2\obj\Debug\Odev2.csprojAssemblyReference.cache
+C:\Users\Cagatay\Documents\GitHub\odev-2-CagatayDeu\Odev2\obj\Debug\Odev2.Form1.resources
+C:\Users\Cagatay\Documents\GitHub\odev-2-CagatayDeu\Odev2\obj\Debug\Odev2.Properties.Resources.resources
+C:\Users\Cagatay\Documents\GitHub\odev-2-CagatayDeu\Odev2\obj\Debug\Odev2.csproj.GenerateResource.cache
+C:\Users\Cagatay\Documents\GitHub\odev-2-CagatayDeu\Odev2\obj\Debug\Odev2.csproj.CoreCompileInputs.cache
+C:\Users\Cagatay\Documents\GitHub\odev-2-CagatayDeu\Odev2\obj\Debug\Odev2.exe
+C:\Users\Cagatay\Documents\GitHub\odev-2-CagatayDeu\Odev2\obj\Debug\Odev2.pdb
