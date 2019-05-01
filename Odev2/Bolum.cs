@@ -8,5 +8,16 @@ namespace Odev2
 {
     class Bolum
     {
+        private string name;
+
+        public Bolum(string name)
+        {
+            this.name = name;
+        }
+
+        public string Name
+        {
+            get { return name; }
+        }
     }
 }
