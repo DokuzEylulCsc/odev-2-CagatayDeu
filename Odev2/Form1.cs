@@ -96,8 +96,15 @@ namespace Odev2
         {
             if(buttonsType == "ders")
             {
-                selectedBolum.dersSil(listdersler.SelectedIndex);
-                listdersler.Items.RemoveAt(listdersler.SelectedIndex);
+                if(listdersler.SelectedIndex != -1)
+                {
+                    selectedBolum.dersSil(listdersler.SelectedIndex);
+                    listdersler.Items.RemoveAt(listdersler.SelectedIndex);
+                } else
+                {
+                    MessageBox.Show("Ders seçiniz.");
+                }
+                
             }
             
 
