@@ -25,5 +25,17 @@ namespace Odev2
         {
             bolumler.Add(bolum);
         }
+
+        public Bolum secilenBolumuBul(string bolumIsmi)
+        {
+            foreach (Bolum a in bolumler)
+            {
+                if (a.Name == bolumIsmi)
+                {
+                    return a;
+                }
+            }
+            return null;
+        }
     }
 }

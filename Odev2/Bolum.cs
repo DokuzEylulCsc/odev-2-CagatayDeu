@@ -8,6 +8,7 @@ namespace Odev2
 {
     class Bolum
     {
+        public List<Ders> dersler = new List<Ders>();
         private string name;
 
         public Bolum(string name)
@@ -18,6 +19,11 @@ namespace Odev2
         public string Name
         {
             get { return name; }
+        }
+
+        public void dersEkle(Ders ders)
+        {
+            dersler.Add(ders);
         }
     }
 }

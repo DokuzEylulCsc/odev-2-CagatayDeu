@@ -38,6 +38,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.kaydet = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,28 +97,30 @@
             this.button3.TabIndex = 11;
             this.button3.Text = "Lütfen Seçiniz.";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(18, 20);
+            this.textBoxName.Location = new System.Drawing.Point(102, 19);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(100, 20);
             this.textBoxName.TabIndex = 12;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.kaydet);
             this.panel1.Controls.Add(this.textBoxName);
-            this.panel1.Location = new System.Drawing.Point(442, 245);
+            this.panel1.Location = new System.Drawing.Point(550, 43);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(262, 99);
+            this.panel1.Size = new System.Drawing.Size(205, 100);
             this.panel1.TabIndex = 13;
             this.panel1.Visible = false;
             // 
             // kaydet
             // 
-            this.kaydet.Location = new System.Drawing.Point(166, 20);
+            this.kaydet.Location = new System.Drawing.Point(77, 62);
             this.kaydet.Name = "kaydet";
             this.kaydet.Size = new System.Drawing.Size(75, 23);
             this.kaydet.TabIndex = 13;
@@ -128,11 +131,21 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(361, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 13);
+            this.label1.Size = new System.Drawing.Size(47, 24);
             this.label1.TabIndex = 14;
             this.label1.Text = "Deu";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 13);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Fakülte İsmi:";
             // 
             // Form1
             // 
@@ -168,6 +181,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button kaydet;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

@@ -15,6 +15,7 @@ namespace Odev2
         Universite deu = new Universite();
 
         Fakulte selectedFakulte = null;
+        Bolum selectedBolum = null;
 
         private string buttonsType = "fakulte";
         
@@ -43,10 +44,10 @@ namespace Odev2
                     selectedFakulte = deu.secilenFakulteyiBul(listfakulte.SelectedItem.ToString());
                     buttonsType = "bolum";
                     Console.WriteLine(selectedFakulte.Name);// silinecek
-                    selectedFakulte.bolumEkle(new Bolum("lale")); // silinecek
-                    selectedFakulte.bolumEkle(new Bolum("sadas")); // silinecek
+                    selectedFakulte.bolumEkle(new Bolum("Endüstri Mühendisliği")); // silinecek
+                    selectedFakulte.bolumEkle(new Bolum("Bilgisayar Mühendisliği")); // silinecek
 
-                    foreach (Bolum a in selectedFakulte.bolumler)
+                    foreach (Bolum a in selectedFakulte.bolumler) //var olan bölümleri yüklemek için.
                     {
                         listbolumler.Items.Add(a.Name);
                     }
@@ -54,6 +55,8 @@ namespace Odev2
                     listbolumler.Visible = true;
                     button1.Text = "Bolum Ekle";
                     button2.Text = "Bölüm'e Git";
+                    label1.Text = selectedFakulte.Name;
+                    label2.Text = "Bölüm İsmi:";
                 }
                 else
                 {
@@ -61,28 +64,51 @@ namespace Odev2
                 }
             } else if (buttonsType == "bolum")
             {
-                
+                if(listbolumler.SelectedIndex != -1)
+                {
+                    selectedBolum = selectedFakulte.secilenBolumuBul(listbolumler.SelectedItem.ToString());
+                    buttonsType = "ders";
+                    selectedBolum.dersEkle(new Ders("Matematik")); // silinecek
+                    selectedBolum.dersEkle(new Ders("Nesneye Yönelik Programlama")); // silinecek
+                    foreach (Ders a in selectedBolum.dersler) //var olan dersleri yüklemek için.
+                    {
+                        listdersler.Items.Add(a.Name);
+                    }
+                    listbolumler.Visible = false;
+                    listdersler.Visible = true;
+                    button3.Visible = true;
+                    button1.Text = "Ders Aç";
+                    button2.Text = "Ders'e Git";
+                    button3.Text = "Ders Kapat";
+                    label1.Text = selectedBolum.Name;
+                    label2.Text = "Ders İsmi:";
+                }
+                else
+                {
+                    MessageBox.Show("Bölüm seçiniz.");
+                }
+
             }
             
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Fakulte yeni = new Fakulte("deneme");
+            //Fakulte yeni = new Fakulte("deneme");
 
-            deu.fakulteEkle(yeni);
-            listfakulte.Items.Add(yeni.Name);
+            //deu.fakulteEkle(yeni);
+            //listfakulte.Items.Add(yeni.Name);
 
-            yeni.bolumEkle(new Bolum("endüstri mühendisliğİ"));
-            yeni.bolumEkle(new Bolum("Bilgisayar mühendisliği"));
+            //yeni.bolumEkle(new Bolum("endüstri mühendisliğİ"));
+            //yeni.bolumEkle(new Bolum("Bilgisayar mühendisliği"));
 
-            foreach(Bolum a in yeni.bolumler)
-            {
-                listbolumler.Items.Add(a.Name);
-            }
+            //foreach(Bolum a in yeni.bolumler)
+            //{
+            //    listbolumler.Items.Add(a.Name);
+            //}
 
-            listfakulte.Visible = false;
-            listbolumler.Visible = true;
+            //listfakulte.Visible = false;
+            //listbolumler.Visible = true;
 
         }
 
