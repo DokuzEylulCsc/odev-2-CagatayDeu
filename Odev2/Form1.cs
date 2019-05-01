@@ -16,6 +16,7 @@ namespace Odev2
 
         Fakulte selectedFakulte = null;
         Bolum selectedBolum = null;
+        Ders selectedDers = null;
 
         private string buttonsType = "fakulte";
         
@@ -88,6 +89,31 @@ namespace Odev2
                     MessageBox.Show("Bölüm seçiniz.");
                 }
 
+            } else if(buttonsType == "ders")
+            {
+                if (listdersler.SelectedIndex != -1)
+                {
+                    selectedDers = selectedBolum.secilenDersiBul(listbolumler.SelectedItem.ToString());
+                    buttonsType = "ayrıntı";
+                    //selectedBolum.dersEkle(new Ders("Matematik")); // silinecek
+                    //selectedBolum.dersEkle(new Ders("Nesneye Yönelik Programlama")); // silinecek
+                    //foreach (Ders a in selectedBolum.dersler) //var olan dersleri yüklemek için.
+                    //{
+                    //    listdersler.Items.Add(a.Name);
+                    //}
+                    //listbolumler.Visible = false;
+                    //listdersler.Visible = true;
+                    //button3.Visible = true;
+                    //button1.Text = "Ders Aç";
+                    //button2.Text = "Ders'e Git";
+                    //button3.Text = "Ders Kapat";
+                    //label1.Text = selectedBolum.Name;
+                    //label2.Text = "Ders İsmi:";
+                }
+                else
+                {
+                    MessageBox.Show("Ders seçiniz.");
+                }
             }
             
         }
@@ -171,7 +197,7 @@ namespace Odev2
                 {
                     MessageBox.Show("Ders ismi zorunludur");
                 }
-            }
+            } 
             
             
         }

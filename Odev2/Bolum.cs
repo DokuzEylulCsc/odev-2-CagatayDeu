@@ -33,5 +33,17 @@ namespace Odev2
             foreach (Ders i in dersler)
                 Console.WriteLine(i.Name);
         }
+
+        public Ders secilenDersiBul(string dersIsmi)
+        {
+            foreach (Ders a in dersler)
+            {
+                if (a.Name == dersIsmi)
+                {
+                    return a;
+                }
+            }
+            return null;
+        }
     }
 }
