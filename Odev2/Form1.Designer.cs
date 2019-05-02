@@ -62,6 +62,7 @@
             this.ogrenciKaydet = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.TcNo = new System.Windows.Forms.TextBox();
+            this.hazırBilgiYukle = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelbuttons.SuspendLayout();
             this.panelkaydet.SuspendLayout();
@@ -319,6 +320,7 @@
             this.dosyayaYazdir.TabIndex = 4;
             this.dosyayaYazdir.Text = "Dosyaya Yazdır";
             this.dosyayaYazdir.UseVisualStyleBackColor = true;
+            this.dosyayaYazdir.Click += new System.EventHandler(this.dosyayaYazdir_Click);
             // 
             // textBox1
             // 
@@ -424,11 +426,24 @@
             this.TcNo.Size = new System.Drawing.Size(200, 31);
             this.TcNo.TabIndex = 26;
             // 
+            // hazırBilgiYukle
+            // 
+            this.hazırBilgiYukle.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.hazırBilgiYukle.ForeColor = System.Drawing.Color.Coral;
+            this.hazırBilgiYukle.Location = new System.Drawing.Point(160, 621);
+            this.hazırBilgiYukle.Name = "hazırBilgiYukle";
+            this.hazırBilgiYukle.Size = new System.Drawing.Size(232, 62);
+            this.hazırBilgiYukle.TabIndex = 22;
+            this.hazırBilgiYukle.Text = "Hazır Bilgileri Yükle";
+            this.hazırBilgiYukle.UseVisualStyleBackColor = false;
+            this.hazırBilgiYukle.Click += new System.EventHandler(this.hazırBilgiYukle_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1596, 865);
+            this.Controls.Add(this.hazırBilgiYukle);
             this.Controls.Add(this.panelkaydet);
             this.Controls.Add(this.labelgorevliler);
             this.Controls.Add(this.labelogrenciler);
@@ -493,6 +508,7 @@
         private System.Windows.Forms.Button ogrenciKaydet;
         private System.Windows.Forms.TextBox TcNo;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button hazırBilgiYukle;
     }
 }
 

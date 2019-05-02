@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -338,6 +339,77 @@ namespace Odev2
                 buttonsType = "ders";
                 selectedDers = null;
             }
+        }
+
+        private void dosyayaYazdir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                StreamWriter sw = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + $"\\{selectedDers.Name}.txt.");
+                string temp = null;
+                foreach (Ogrenci a in selectedDers.ogrenciler)
+                    temp += "İsim: " + a.Name + "Tc: " + a.Tc + "Yaş: " + a.Age + "Şube: " + a.getSube + "Öğrenci Tipi: " + a.GetType();
+                foreach (OgretimElemani a in selectedDers.ogretimGorevlileri)
+                    temp += "İsim: " + a.Name + "Tc: " + a.Tc + "Yaş: " + a.Age;
+
+                Console.WriteLine(temp);
+                sw.Write(temp);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error file writing: "+ ex);
+            }
+        }
+
+        private void hazırBilgiYukle_Click(object sender, EventArgs e)
+        {
+            Fakulte fakulte = new Fakulte("IBF");
+            Fakulte fakulte2 = new Fakulte("Mühendislik Fakültesi");
+            deu.fakulteEkle(fakulte);
+            deu.fakulteEkle(fakulte2);
+
+            Bolum bolum = new Bolum("İktisat");
+            Bolum bolum2 = new Bolum("İşletme");
+            Bolum bolum3 = new Bolum("Endüstri Mühendisliği");
+            Bolum bolum4 = new Bolum("Bilgisayar Mühendisliği");
+
+            Ders ders = new Ders("Matematik I");
+            Ders ders2 = new Ders("Türk Dili I");
+
+            fakulte.bolumEkle(bolum); 
+            fakulte.bolumEkle(bolum2);
+            fakulte2.bolumEkle(bolum3);
+            fakulte2.bolumEkle(bolum4);
+
+            bolum.dersEkle(ders);
+            bolum.dersEkle(ders2);
+            bolum2.dersEkle(ders);
+            bolum2.dersEkle(ders2);
+            bolum3.dersEkle(ders);
+            bolum3.dersEkle(ders2);
+            bolum4.dersEkle(ders);
+            bolum4.dersEkle(ders2);
+
+            ders.ogrenciEkle(new Doktora("Burak Yılmaz", 231925221, 15, new Sube(1))); 
+            ders.ogrenciEkle(new YuksekLisans("Jale Koç", 931223221, 21, new Sube(1)));
+            ders.ogretimGorevlisiEkle(new OgretimElemani("Neriman Selim", 123223322, 35)); 
+            ders.ogretimGorevlisiEkle(new OgretimElemani("Fırat Kaplan", 531223221, 45));
+
+            ders2.ogrenciEkle(new Doktora("Burak Yılmaz", 231925221, 15, new Sube(1)));
+            ders2.ogrenciEkle(new YuksekLisans("Jale Koç", 931223221, 21, new Sube(1)));
+            ders2.ogretimGorevlisiEkle(new OgretimElemani("Neriman Selim", 123223322, 35));
+            ders2.ogretimGorevlisiEkle(new OgretimElemani("Fırat Kaplan", 531223221, 45));
+
+            listfakulte.Items.Add(fakulte.Name);
+            listfakulte.Items.Add(fakulte2.Name);
+            listbolumler.Items.Add(bolum.Name);
+            listbolumler.Items.Add(bolum2.Name);
+            listbolumler.Items.Add(bolum3.Name);
+            listbolumler.Items.Add(bolum4.Name);
+            listdersler.Items.Add(ders.Name);
+            listdersler.Items.Add(ders2.Name);
+
+
         }
     }
 }
