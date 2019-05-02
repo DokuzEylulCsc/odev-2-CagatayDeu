@@ -352,8 +352,9 @@ namespace Odev2
                 foreach (OgretimElemani a in selectedDers.ogretimGorevlileri)
                     temp += "İsim: " + a.Name + "Tc: " + a.Tc + "Yaş: " + a.Age;
 
-                Console.WriteLine(temp);
+                temp = temp.ToString();
                 sw.Write(temp);
+                sw.Close();
             }
             catch(Exception ex)
             {
