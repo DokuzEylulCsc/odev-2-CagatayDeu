@@ -105,7 +105,7 @@ namespace Odev2
                     }
                     foreach (OgretimElemani a in selectedDers.ogretimGorevlileri) //var olan öğretim görevlilerini yüklemek için.
                     {
-                        listOgretimElemanlari.Items.Add(a);
+                        listOgretimElemanlari.Items.Add(a.Name);
                     }
                     listdersler.Visible = false;
                     listOgrenciler.Visible = true;
@@ -288,7 +288,20 @@ namespace Odev2
 
             } else
             {
-
+                if (textBox1.TextLength != 0 & TcNo.TextLength != 0 & textBox2.TextLength != 0)
+                {
+                    OgretimElemani yeni = new OgretimElemani(textBox1.Text, Convert.ToDouble(TcNo.Text),
+                        Convert.ToInt32(textBox2.Text));
+                    selectedDers.ogretimGorevlisiEkle(yeni);
+                    listOgretimElemanlari.Items.Add(yeni.Name);
+                    panelkaydet.Visible = false;
+                    textBox1.Text = null;
+                    TcNo.Text = null;
+                    textBox2.Text = null;
+                } else
+                {
+                    MessageBox.Show("Öğretim görevlisi bilgilerini doldurunuz.");
+                }
             }
         }
     }

@@ -8,20 +8,20 @@ namespace Odev2
 {
     class OgretimElemani
     {
-        private string name;
+        private string fullname;
         private double tc;
         private int age;
 
-        public OgretimElemani(string name, double tc, int age)
+        public OgretimElemani(string fullname, double tc, int age)
         {
-            this.name = name;
+            this.fullname = tc + "-" + fullname;
             this.tc = tc;
             this.age = age;
         }
 
         public string Name
         {
-            get { return name; }
+            get { return fullname; }
         }
 
         public double Tc
