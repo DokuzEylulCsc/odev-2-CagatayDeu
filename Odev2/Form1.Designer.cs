@@ -188,14 +188,16 @@
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button4.Location = new System.Drawing.Point(175, 6);
             this.button4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(183, 44);
             this.button4.TabIndex = 15;
-            this.button4.Text = "Başa Geri Dön";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Visible = false;
+            this.button4.Text = ">Geri Git<";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // listOgrenciler
             // 
@@ -428,7 +430,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1596, 865);
             this.Controls.Add(this.panelkaydet);
-            this.Controls.Add(this.panelbuttons);
             this.Controls.Add(this.labelgorevliler);
             this.Controls.Add(this.labelogrenciler);
             this.Controls.Add(this.listOgretimElemanlari);
@@ -442,6 +443,7 @@
             this.Controls.Add(this.listdersler);
             this.Controls.Add(this.listbolumler);
             this.Controls.Add(this.listfakulte);
+            this.Controls.Add(this.panelbuttons);
             this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Form1";
             this.Text = "Form1";

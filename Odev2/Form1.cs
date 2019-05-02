@@ -44,10 +44,7 @@ namespace Odev2
                 {
                     selectedFakulte = deu.secilenFakulteyiBul(listfakulte.SelectedItem.ToString());
                     buttonsType = "bolum";
-                    Console.WriteLine(selectedFakulte.Name);// silinecek
-                    selectedFakulte.bolumEkle(new Bolum("Endüstri Mühendisliği")); // silinecek
-                    selectedFakulte.bolumEkle(new Bolum("Bilgisayar Mühendisliği")); // silinecek
-
+                    listbolumler.Items.Clear();
                     foreach (Bolum a in selectedFakulte.bolumler) //var olan bölümleri yüklemek için.
                     {
                         listbolumler.Items.Add(a.Name);
@@ -69,8 +66,7 @@ namespace Odev2
                 {
                     selectedBolum = selectedFakulte.secilenBolumuBul(listbolumler.SelectedItem.ToString());
                     buttonsType = "ders";
-                    selectedBolum.dersEkle(new Ders("Matematik")); // silinecek
-                    selectedBolum.dersEkle(new Ders("Nesneye Yönelik Programlama")); // silinecek
+                    listdersler.Items.Clear();
                     foreach (Ders a in selectedBolum.dersler) //var olan dersleri yüklemek için.
                     {
                         listdersler.Items.Add(a.Name);
@@ -95,10 +91,8 @@ namespace Odev2
                 {
                     selectedDers = selectedBolum.secilenDersiBul(listdersler.SelectedItem.ToString());
                     buttonsType = "ayrıntı";
-                    selectedDers.ogrenciEkle(new Doktora("Burak Yılmaz", 231925221,15,new Sube(1))); // silinecek
-                    selectedDers.ogrenciEkle(new YuksekLisans("Çağatay Kapuağası", 931223221,21, new Sube(1))); // silinecek
-                    selectedDers.ogretimGorevlisiEkle(new OgretimElemani("Neriman Selim", 123223322,35)); // silinecek
-                    selectedDers.ogretimGorevlisiEkle(new OgretimElemani("Fırat Kaplan",  531223221,45)); // silinecek
+                    listOgrenciler.Items.Clear();
+                    listOgretimElemanlari.Items.Clear();
                     foreach (Ogrenci a in selectedDers.ogrenciler) //var olan öğrencileri yüklemek için.
                     {
                         listOgrenciler.Items.Add(a.Name);
@@ -302,6 +296,47 @@ namespace Odev2
                 {
                     MessageBox.Show("Öğretim görevlisi bilgilerini doldurunuz.");
                 }
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if(buttonsType == "bolum")
+            {
+                listfakulte.Visible = true;
+                listbolumler.Visible = false;
+                button1.Text = "Fakülte Aç";
+                button2.Text = "Fakülteye git";
+                label1.Text = "Deu";
+                label2.Text = "Fakülte İsmi:";
+                buttonsType = "fakulte";
+                selectedFakulte = null;
+            } else if(buttonsType == "ders")
+            {
+                listbolumler.Visible = true;
+                listdersler.Visible = false;
+                button3.Visible = false;
+                button1.Text = "Bolum Aç";
+                button2.Text = "Bölüm'e Git";
+                button3.Text = "Bölüm Kapat";
+                label1.Text = selectedFakulte.Name;
+                label2.Text = "Bölüm İsmi:";
+                buttonsType = "bolum";
+                selectedBolum = null;
+            } else if(buttonsType == "ayrıntı")
+            {
+                listdersler.Visible = true;
+                listOgrenciler.Visible = false;
+                listOgretimElemanlari.Visible = false;
+                labelogrenciler.Visible = false;
+                labelgorevliler.Visible = false;
+                button1.Visible = true;
+                button2.Visible = true;
+                button3.Visible = true;
+                panelbuttons.Visible = false;
+                label1.Text = selectedBolum.Name;
+                buttonsType = "ders";
+                selectedDers = null;
             }
         }
     }
