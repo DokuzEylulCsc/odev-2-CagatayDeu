@@ -9,10 +9,10 @@ namespace Odev2
     class OgretimElemani
     {
         private string fullname;
-        private double tc;
+        private double tc; //özellikler.
         private int age;
 
-        public OgretimElemani(string fullname, double tc, int age)
+        public OgretimElemani(string fullname, double tc, int age) //constructor.
         {
             this.fullname = tc + "-" + fullname;
             this.tc = tc;
@@ -24,7 +24,7 @@ namespace Odev2
             get { return fullname; }
         }
 
-        public double Tc
+        public double Tc        //gerekli getler.
         {
             get { return tc; }
         }

@@ -10,14 +10,14 @@ namespace Odev2
     {
         private int subes = 1;
 
-        public Sube(int sube)
+        public Sube(int sube)   //2 adet şube için constructor.
         {
             this.subes = sube;
         }
 
         public int Subes
         {
-            get { return subes; }
+            get { return subes; } //şubeyi veren get.
         }
     }
 }

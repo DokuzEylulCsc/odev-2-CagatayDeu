@@ -8,12 +8,12 @@ namespace Odev2
 {
     abstract class Ogrenci
     {
-        private string fullname;
+        private string fullname; //ogrenci base özellikler
         private double tc;
         private int age;
         private Sube sube;
 
-        public Ogrenci(string fullname, double tc, int age, Sube sube)
+        public Ogrenci(string fullname, double tc, int age, Sube sube) //nesne yaratılırken istenir.
         {
             this.fullname = tc + "-" + fullname;
             this.tc = tc;
@@ -26,7 +26,7 @@ namespace Odev2
             get { return fullname; }
         }
 
-        public double Tc
+        public double Tc            //gerektiğinde alınabilmesi için getler.
         {
             get { return tc; }
         }

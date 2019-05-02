@@ -8,7 +8,7 @@ namespace Odev2
 {
     class Bolum
     {
-        public List<Ders> dersler = new List<Ders>();
+        public List<Ders> dersler = new List<Ders>(); //ders listesinin tutulduğu list.
         private string name;
 
         public Bolum(string name)
@@ -16,25 +16,22 @@ namespace Odev2
             this.name = name;
         }
 
-        public string Name
+        public string Name          //gerekli getler.
         {
             get { return name; }
         }
 
-        public void dersEkle(Ders ders)
-        {
+        public void dersEkle(Ders ders)     //ders ekleme fonksiyonu.
+        { 
             dersler.Add(ders);
         }
 
-        public void dersSil(int index)
+        public void dersSil(int index) //index e göre ders silinir.
         {
             dersler.RemoveAt(index);
-
-            foreach (Ders i in dersler)
-                Console.WriteLine(i.Name);
         }
 
-        public Ders secilenDersiBul(string dersIsmi)
+        public Ders secilenDersiBul(string dersIsmi) //ders ismine göre ders bulunur.(Aynı isimde 2 ders olmamalı değil mi ???)
         {
             foreach (Ders a in dersler)
             {

@@ -8,7 +8,7 @@ namespace Odev2
 {
     class YuksekLisans : Ogrenci
     {
-        private string fullname;
+        private string fullname; //Ogrenciden türetilmiş doktora sınıfı. Ogrencinin özelliklerini barındırır.
         private double tc;
         private int age;
         private Sube sube;

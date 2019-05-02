@@ -13,13 +13,15 @@ namespace Odev2
 {
     public partial class Form1 : Form
     {
-        Universite deu = new Universite();
+        Universite deu = new Universite(); //deu üniversitesi hazır olarak oluşturulur.
 
         Fakulte selectedFakulte = null;
-        Bolum selectedBolum = null;
+        Bolum selectedBolum = null; //tasarımın düzenli ve hatasız ilerlemesi için listboxtan seçilen veriler alınır.
         Ders selectedDers = null;
 
-        private string buttonsType = "fakulte";
+        private bool justOne = false;
+
+        private string buttonsType = "fakulte"; //butonların textleri visiblity leri için oluşturulmuş buttontype.
         
 
         public Form1()
@@ -29,29 +31,29 @@ namespace Odev2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            listfakulte.Visible = true;
+            listfakulte.Visible = true; //default olarak fakulteler gösterilir.
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            panel1.Visible = true;
+            panel1.Visible = true; //fakülte, bölüm, ders vb açma işlemlerinin gerçekleştiği panel1.
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(buttonsType == "fakulte")
+            if(buttonsType == "fakulte") //button tiplerine göre farklı işlemler yapılır.
             {
                 if (listfakulte.SelectedIndex != -1)
                 {
-                    selectedFakulte = deu.secilenFakulteyiBul(listfakulte.SelectedItem.ToString());
-                    buttonsType = "bolum";
-                    listbolumler.Items.Clear();
+                    selectedFakulte = deu.secilenFakulteyiBul(listfakulte.SelectedItem.ToString()); //seçilen fakülte bulunur.
+                    buttonsType = "bolum"; //button tipi değiştirilir.
+                    listbolumler.Items.Clear(); //üstüste eklemeleri fixlemek için yüklemeden önce temizlenir.
                     foreach (Bolum a in selectedFakulte.bolumler) //var olan bölümleri yüklemek için.
                     {
                         listbolumler.Items.Add(a.Name);
                     }
                     listfakulte.Visible = false;
-                    listbolumler.Visible = true;
+                    listbolumler.Visible = true; //tasarımsal düzenlemeler
                     button1.Text = "Bolum Ekle";
                     button2.Text = "Bölüm'e Git";
                     label1.Text = selectedFakulte.Name;
@@ -59,11 +61,11 @@ namespace Odev2
                 }
                 else
                 {
-                    MessageBox.Show("Fakülte seçiniz.");
+                    MessageBox.Show("Fakülte seçiniz."); //listboxtan item seçilmediği taktirde uyarı.
                 }
             } else if (buttonsType == "bolum")
             {
-                if(listbolumler.SelectedIndex != -1)
+                if(listbolumler.SelectedIndex != -1) //yukardaki işlemlerin benzeri işlemler.
                 {
                     selectedBolum = selectedFakulte.secilenBolumuBul(listbolumler.SelectedItem.ToString());
                     buttonsType = "ders";
@@ -76,7 +78,7 @@ namespace Odev2
                     listdersler.Visible = true;
                     button3.Visible = true;
                     button1.Text = "Ders Aç";
-                    button2.Text = "Ders'e Git";
+                    button2.Text = "Ders'e Git"; //tasarımsal düzenlemeler
                     button3.Text = "Ders Kapat";
                     label1.Text = selectedBolum.Name;
                     label2.Text = "Ders İsmi:";
@@ -88,7 +90,7 @@ namespace Odev2
 
             } else if(buttonsType == "ders")
             {
-                if (listdersler.SelectedIndex != -1)
+                if (listdersler.SelectedIndex != -1)  //yukardaki işlemlerin benzeri işlemler.
                 {
                     selectedDers = selectedBolum.secilenDersiBul(listdersler.SelectedItem.ToString());
                     buttonsType = "ayrıntı";
@@ -106,7 +108,7 @@ namespace Odev2
                     listOgrenciler.Visible = true;
                     listOgretimElemanlari.Visible = true;
                     labelogrenciler.Visible = true;
-                    labelgorevliler.Visible = true;
+                    labelgorevliler.Visible = true; //tasarımsal düzenlemeler
                     button1.Visible = false;
                     button2.Visible = false;
                     button3.Visible = false;
@@ -121,13 +123,13 @@ namespace Odev2
             
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) //ders silme fonksiyonu
         {
             if(buttonsType == "ders")
             {
                 if(listdersler.SelectedIndex != -1)
                 {
-                    selectedBolum.dersSil(listdersler.SelectedIndex);
+                    selectedBolum.dersSil(listdersler.SelectedIndex); //seçili bölüm nesnesine index gönderir.
                     listdersler.Items.RemoveAt(listdersler.SelectedIndex);
                 } else
                 {
@@ -137,16 +139,16 @@ namespace Odev2
             }
         }
 
-        private void kaydet_Click(object sender, EventArgs e)
+        private void kaydet_Click(object sender, EventArgs e) //yeni fakülte bölüm ders ekleme işlemleri
         {
-            if(buttonsType == "fakulte")
+            if(buttonsType == "fakulte") //yukarıda söylendiği gibi buttontipine göre yapılır.
             {
                 if (textBoxName.TextLength != 0)
                 {
-                    Fakulte yeni = new Fakulte(textBoxName.Text);
-                    deu.fakulteEkle(yeni);
+                    Fakulte yeni = new Fakulte(textBoxName.Text); //yeni nesne türetilir, üniversite sınıfındaki fonksiyona gönderilir.
+                    deu.fakulteEkle(yeni); 
                     listfakulte.Items.Add(yeni.Name);
-                    panel1.Visible = false;
+                    panel1.Visible = false; //tasarımsal
                     textBoxName.Text = null;
                 }
                 else
@@ -158,9 +160,9 @@ namespace Odev2
 
                 if (textBoxName.TextLength != 0)
                 {
-                    Bolum yeni = new Bolum(textBoxName.Text);
+                    Bolum yeni = new Bolum(textBoxName.Text); //yukarıda ki işlemlerin farklı nesne tipleri.
                     selectedFakulte.bolumEkle(yeni);
-                    listbolumler.Items.Add(yeni.Name);
+                    listbolumler.Items.Add(yeni.Name); //tasarımsal
                     panel1.Visible = false;
                     textBoxName.Text = null;
                 }
@@ -172,9 +174,9 @@ namespace Odev2
             {
                 if (textBoxName.TextLength != 0)
                 {
-                    Ders yeni = new Ders(textBoxName.Text);
+                    Ders yeni = new Ders(textBoxName.Text); //yukarıda ki işlemlerin farklı nesne tipleri.
                     selectedBolum.dersEkle(yeni);
-                    listdersler.Items.Add(yeni.Name);
+                    listdersler.Items.Add(yeni.Name); //tasarımsal
                     panel1.Visible = false;
                     textBoxName.Text = null;
                 }
@@ -187,8 +189,8 @@ namespace Odev2
             
         }
 
-        private void ogrenciEkle_Click(object sender, EventArgs e)
-        {
+        private void ogrenciEkle_Click(object sender, EventArgs e) //ogrenci eklemek için farklı panel ve buttonlar kullanıldı.
+        {                                                         
             panelkaydet.Visible = true;
             label5.Visible = true;
             label6.Visible = true;
@@ -196,7 +198,7 @@ namespace Odev2
             comboOgrenciTip.Visible = true;
         }
 
-        private void GorevliEkle_Click(object sender, EventArgs e)
+        private void GorevliEkle_Click(object sender, EventArgs e) //görevli eklemek için farklı panel ve buttonlar kullanıldı.
         {
             panelkaydet.Visible = true;
             label5.Visible = false;
@@ -205,7 +207,7 @@ namespace Odev2
             comboOgrenciTip.Visible = false;
         }
 
-        private void ogrenciKaldir_Click(object sender, EventArgs e)
+        private void ogrenciKaldir_Click(object sender, EventArgs e) //öğrenci silimini nesnedeki fonksiyona iletir.
         {
             if (listOgrenciler.SelectedIndex != -1)
             {
@@ -218,7 +220,7 @@ namespace Odev2
                 
         }
 
-        private void gorevliKaldir_Click(object sender, EventArgs e)
+        private void gorevliKaldir_Click(object sender, EventArgs e) //görevli silimini nesnedeki fonksiyona iletir.
         {
             if (listOgretimElemanlari.SelectedIndex != -1)
             {
@@ -232,21 +234,21 @@ namespace Odev2
             
         }
 
-        private void ogrenciKaydet_Click(object sender, EventArgs e)
+        private void ogrenciKaydet_Click(object sender, EventArgs e) //tasarımsal bir veriden yararlanarak öğrenci ve görevli eklemeyi tamamlar.
         {
-            if(comboSube.Visible == true)
+            if(comboSube.Visible == true)//bu veri sadece öğrenci eklemede olduğu için ayırt etmede kullanıldı.
             {
                 if(textBox1.TextLength != 0 & TcNo.TextLength != 0 & textBox2.TextLength != 0 & comboSube.SelectedIndex != -1 & comboOgrenciTip.SelectedIndex != -1)
-                {
-                    if(comboOgrenciTip.SelectedIndex == 0)
+                { //verilerin dolu olmaso
+                    if(comboOgrenciTip.SelectedIndex == 0) //lisans yüksek lisans vb öğrenci tiplerinin seçimine göre davranır.
                     {
                         Lisans yeni = new Lisans(textBox1.Text, Convert.ToDouble(TcNo.Text),
                             Convert.ToInt32(textBox2.Text), new Sube(Convert.ToInt32(comboSube.SelectedItem)));
-                        selectedDers.ogrenciEkle(yeni);
-                        listOgrenciler.Items.Add(yeni.Name);
+                        selectedDers.ogrenciEkle(yeni); //gerekli bilgiler textboxlar vb araçlardan alınıp nesne yaratılır.
+                        listOgrenciler.Items.Add(yeni.Name); //nesnedeki fonksiyona iletilerek eklenir
                         panelkaydet.Visible = false;
                         textBox1.Text = null;
-                        TcNo.Text = null;
+                        TcNo.Text = null; //tasarımsal
                         textBox2.Text = null;
                         comboSube.SelectedIndex = -1;
                         comboOgrenciTip.SelectedIndex = -1;
@@ -255,11 +257,11 @@ namespace Odev2
                     {
                         YuksekLisans yeni = new YuksekLisans(textBox1.Text,Convert.ToDouble(TcNo.Text),
                             Convert.ToInt32(textBox2.Text),new Sube(Convert.ToInt32(comboSube.SelectedItem)));
-                        selectedDers.ogrenciEkle(yeni);
+                        selectedDers.ogrenciEkle(yeni); //yukarıdaki işlemlerin benzeri.
                         listOgrenciler.Items.Add(yeni.Name);
                         panelkaydet.Visible = false;
                         textBox1.Text = null;
-                        TcNo.Text = null;
+                        TcNo.Text = null; //tasarımsal
                         textBox2.Text = null;
                         comboSube.SelectedIndex = -1;
                         comboOgrenciTip.SelectedIndex = -1;
@@ -267,11 +269,11 @@ namespace Odev2
                     {
                         Doktora yeni = new Doktora(textBox1.Text, Convert.ToDouble(TcNo.Text),
                             Convert.ToInt32(textBox2.Text), new Sube(Convert.ToInt32(comboSube.SelectedItem)));
-                        selectedDers.ogrenciEkle(yeni);
+                        selectedDers.ogrenciEkle(yeni); //yukarıdaki işlemlerin benzeri.
                         listOgrenciler.Items.Add(yeni.Name);
                         panelkaydet.Visible = false;
                         textBox1.Text = null;
-                        TcNo.Text = null;
+                        TcNo.Text = null; //tasarımsal
                         textBox2.Text = null;
                         comboSube.SelectedIndex = -1;
                         comboOgrenciTip.SelectedIndex = -1;
@@ -286,11 +288,11 @@ namespace Odev2
                 if (textBox1.TextLength != 0 & TcNo.TextLength != 0 & textBox2.TextLength != 0)
                 {
                     OgretimElemani yeni = new OgretimElemani(textBox1.Text, Convert.ToDouble(TcNo.Text),
-                        Convert.ToInt32(textBox2.Text));
+                        Convert.ToInt32(textBox2.Text)); //yukarıdaki işlemlerin benzeri şekilde görevli eklenir.
                     selectedDers.ogretimGorevlisiEkle(yeni);
                     listOgretimElemanlari.Items.Add(yeni.Name);
                     panelkaydet.Visible = false;
-                    textBox1.Text = null;
+                    textBox1.Text = null; //tasarımsal
                     TcNo.Text = null;
                     textBox2.Text = null;
                 } else
@@ -302,9 +304,9 @@ namespace Odev2
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if(buttonsType == "bolum")
-            {
-                listfakulte.Visible = true;
+            if(buttonsType == "bolum")  //tasarımı kuvvetlendirmek ve kullanıcı deneyimini iyileştirmek(kullanırken sürekli kapatıp açmamak için :D)
+            {                           //için bulunulan konuma göre geriye gitme işlemi. Neredeyse tamamen tasarımsaldır.
+                listfakulte.Visible = true; 
                 listbolumler.Visible = false;
                 button1.Text = "Fakülte Aç";
                 button2.Text = "Fakülteye git";
@@ -341,76 +343,82 @@ namespace Odev2
             }
         }
 
-        private void dosyayaYazdir_Click(object sender, EventArgs e)
+        private void dosyayaYazdir_Click(object sender, EventArgs e) //bulunulan dersin bilgilerini dosyaya yazdırma işlemi.
         {
             try
             {
-                StreamWriter sw = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + $"\\{selectedDers.Name}.txt.");
-                string temp = null;
+                StreamWriter sw = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + $"\\{selectedDers.Name}.txt."); //ders ismine göre
+                string temp = null;                                                                                                               //desktopta txt yaratır.
                 foreach (Ogrenci a in selectedDers.ogrenciler)
-                    temp += "İsim: " + a.Name + "Tc: " + a.Tc + "Yaş: " + a.Age + "Şube: " + a.getSube + "Öğrenci Tipi: " + a.GetType();
-                foreach (OgretimElemani a in selectedDers.ogretimGorevlileri)
+                    temp += "İsim: " + a.Name + "Tc: " + a.Tc + "Yaş: " + a.Age + "Şube: " + a.getSube + "Öğrenci Tipi: " + a.GetType();//for döngüsü ile bilgiler alınır.
+                foreach (OgretimElemani a in selectedDers.ogretimGorevlileri) //görevli bilgileri
                     temp += "İsim: " + a.Name + "Tc: " + a.Tc + "Yaş: " + a.Age;
 
-                temp = temp.ToString();
-                sw.Write(temp);
+                temp = temp.ToString(); //her ihtimale karşı string dönüşümü.
+                sw.Write(temp); //dosya yazımı.
                 sw.Close();
             }
-            catch(Exception ex)
+            catch(Exception ex) 
             {
                 Console.WriteLine("Error file writing: "+ ex);
             }
         }
 
-        private void hazırBilgiYukle_Click(object sender, EventArgs e)
-        {
-            Fakulte fakulte = new Fakulte("IBF");
-            Fakulte fakulte2 = new Fakulte("Mühendislik Fakültesi");
-            deu.fakulteEkle(fakulte);
-            deu.fakulteEkle(fakulte2);
+        private void hazırBilgiYukle_Click(object sender, EventArgs e) //Ödevi okuyan hocalarımız için müthiş bir fonksiyon :D
+        {                                                              //Hızlı bir şekilde test etmek istendiğinde hazır bilgiler girilir.
+            if(justOne == false) //karışıklık olmasın :)
+            {
+                justOne = true;
 
-            Bolum bolum = new Bolum("İktisat");
-            Bolum bolum2 = new Bolum("İşletme");
-            Bolum bolum3 = new Bolum("Endüstri Mühendisliği");
-            Bolum bolum4 = new Bolum("Bilgisayar Mühendisliği");
+                Fakulte fakulte = new Fakulte("IBF");
+                Fakulte fakulte2 = new Fakulte("Mühendislik Fakültesi");
+                deu.fakulteEkle(fakulte);
+                deu.fakulteEkle(fakulte2);
 
-            Ders ders = new Ders("Matematik I");
-            Ders ders2 = new Ders("Türk Dili I");
+                Bolum bolum = new Bolum("İktisat");
+                Bolum bolum2 = new Bolum("İşletme");
+                Bolum bolum3 = new Bolum("Endüstri Mühendisliği");
+                Bolum bolum4 = new Bolum("Bilgisayar Mühendisliği");
 
-            fakulte.bolumEkle(bolum); 
-            fakulte.bolumEkle(bolum2);
-            fakulte2.bolumEkle(bolum3);
-            fakulte2.bolumEkle(bolum4);
+                Ders ders = new Ders("Matematik I");
+                Ders ders2 = new Ders("Türk Dili I");
 
-            bolum.dersEkle(ders);
-            bolum.dersEkle(ders2);
-            bolum2.dersEkle(ders);
-            bolum2.dersEkle(ders2);
-            bolum3.dersEkle(ders);
-            bolum3.dersEkle(ders2);
-            bolum4.dersEkle(ders);
-            bolum4.dersEkle(ders2);
+                fakulte.bolumEkle(bolum);
+                fakulte.bolumEkle(bolum2);
+                fakulte2.bolumEkle(bolum3);
+                fakulte2.bolumEkle(bolum4);
 
-            ders.ogrenciEkle(new Doktora("Burak Yılmaz", 231925221, 15, new Sube(1))); 
-            ders.ogrenciEkle(new YuksekLisans("Jale Koç", 931223221, 21, new Sube(1)));
-            ders.ogretimGorevlisiEkle(new OgretimElemani("Neriman Selim", 123223322, 35)); 
-            ders.ogretimGorevlisiEkle(new OgretimElemani("Fırat Kaplan", 531223221, 45));
+                bolum.dersEkle(ders);
+                bolum.dersEkle(ders2);
+                bolum2.dersEkle(ders);
+                bolum2.dersEkle(ders2);
+                bolum3.dersEkle(ders);
+                bolum3.dersEkle(ders2);
+                bolum4.dersEkle(ders);
+                bolum4.dersEkle(ders2);
 
-            ders2.ogrenciEkle(new Doktora("Burak Yılmaz", 231925221, 15, new Sube(1)));
-            ders2.ogrenciEkle(new YuksekLisans("Jale Koç", 931223221, 21, new Sube(1)));
-            ders2.ogretimGorevlisiEkle(new OgretimElemani("Neriman Selim", 123223322, 35));
-            ders2.ogretimGorevlisiEkle(new OgretimElemani("Fırat Kaplan", 531223221, 45));
+                ders.ogrenciEkle(new Doktora("Burak Yılmaz", 231925221, 15, new Sube(1)));
+                ders.ogrenciEkle(new YuksekLisans("Jale Koç", 931223221, 21, new Sube(1)));
+                ders.ogretimGorevlisiEkle(new OgretimElemani("Neriman Selim", 123223322, 35));
+                ders.ogretimGorevlisiEkle(new OgretimElemani("Fırat Kaplan", 531223221, 45));
 
-            listfakulte.Items.Add(fakulte.Name);
-            listfakulte.Items.Add(fakulte2.Name);
-            listbolumler.Items.Add(bolum.Name);
-            listbolumler.Items.Add(bolum2.Name);
-            listbolumler.Items.Add(bolum3.Name);
-            listbolumler.Items.Add(bolum4.Name);
-            listdersler.Items.Add(ders.Name);
-            listdersler.Items.Add(ders2.Name);
+                ders2.ogrenciEkle(new Doktora("Burak Yılmaz", 231925221, 15, new Sube(1)));
+                ders2.ogrenciEkle(new YuksekLisans("Jale Koç", 931223221, 21, new Sube(1)));
+                ders2.ogretimGorevlisiEkle(new OgretimElemani("Neriman Selim", 123223322, 35));
+                ders2.ogretimGorevlisiEkle(new OgretimElemani("Fırat Kaplan", 531223221, 45));
 
-
+                listfakulte.Items.Add(fakulte.Name);
+                listfakulte.Items.Add(fakulte2.Name);
+                listbolumler.Items.Add(bolum.Name);
+                listbolumler.Items.Add(bolum2.Name);
+                listbolumler.Items.Add(bolum3.Name);
+                listbolumler.Items.Add(bolum4.Name);
+                listdersler.Items.Add(ders.Name);
+                listdersler.Items.Add(ders2.Name);
+            } else
+            {
+                MessageBox.Show("Hazıra Dağ dayanmaz.");
+            }
         }
     }
 }
