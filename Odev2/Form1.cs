@@ -232,9 +232,64 @@ namespace Odev2
             }
             else
             {
-                MessageBox.Show("Öğretim Görevlisi seçiniz.");
+                MessageBox.Show("Öğretim görevlisi seçiniz.");
             }
             
+        }
+
+        private void ogrenciKaydet_Click(object sender, EventArgs e)
+        {
+            if(comboSube.Visible == true)
+            {
+                if(textBox1.TextLength != 0 & TcNo.TextLength != 0 & textBox2.TextLength != 0 & comboSube.SelectedIndex != -1 & comboOgrenciTip.SelectedIndex != -1)
+                {
+                    if(comboOgrenciTip.SelectedIndex == 0)
+                    {
+                        Lisans yeni = new Lisans(textBox1.Text, Convert.ToDouble(TcNo.Text),
+                            Convert.ToInt32(textBox2.Text), new Sube(Convert.ToInt32(comboSube.SelectedItem)));
+                        selectedDers.ogrenciEkle(yeni);
+                        listOgrenciler.Items.Add(yeni.Name);
+                        panelkaydet.Visible = false;
+                        textBox1.Text = null;
+                        TcNo.Text = null;
+                        textBox2.Text = null;
+                        comboSube.SelectedIndex = -1;
+                        comboOgrenciTip.SelectedIndex = -1;
+
+                    } else if(comboOgrenciTip.SelectedIndex == 1)
+                    {
+                        YuksekLisans yeni = new YuksekLisans(textBox1.Text,Convert.ToDouble(TcNo.Text),
+                            Convert.ToInt32(textBox2.Text),new Sube(Convert.ToInt32(comboSube.SelectedItem)));
+                        selectedDers.ogrenciEkle(yeni);
+                        listOgrenciler.Items.Add(yeni.Name);
+                        panelkaydet.Visible = false;
+                        textBox1.Text = null;
+                        TcNo.Text = null;
+                        textBox2.Text = null;
+                        comboSube.SelectedIndex = -1;
+                        comboOgrenciTip.SelectedIndex = -1;
+                    } else
+                    {
+                        Doktora yeni = new Doktora(textBox1.Text, Convert.ToDouble(TcNo.Text),
+                            Convert.ToInt32(textBox2.Text), new Sube(Convert.ToInt32(comboSube.SelectedItem)));
+                        selectedDers.ogrenciEkle(yeni);
+                        listOgrenciler.Items.Add(yeni.Name);
+                        panelkaydet.Visible = false;
+                        textBox1.Text = null;
+                        TcNo.Text = null;
+                        textBox2.Text = null;
+                        comboSube.SelectedIndex = -1;
+                        comboOgrenciTip.SelectedIndex = -1;
+                    }
+                } else
+                {
+                    MessageBox.Show("Öğrenci bilgilerini doldurunuz.");
+                }
+
+            } else
+            {
+
+            }
         }
     }
 }

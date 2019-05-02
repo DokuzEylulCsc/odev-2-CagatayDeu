@@ -60,6 +60,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.comboOgrenciTip = new System.Windows.Forms.ComboBox();
             this.ogrenciKaydet = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.TcNo = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panelbuttons.SuspendLayout();
             this.panelkaydet.SuspendLayout();
@@ -250,6 +252,8 @@
             // 
             // panelkaydet
             // 
+            this.panelkaydet.Controls.Add(this.TcNo);
+            this.panelkaydet.Controls.Add(this.label7);
             this.panelkaydet.Controls.Add(this.ogrenciKaydet);
             this.panelkaydet.Controls.Add(this.comboOgrenciTip);
             this.panelkaydet.Controls.Add(this.label6);
@@ -261,7 +265,7 @@
             this.panelkaydet.Controls.Add(this.textBox1);
             this.panelkaydet.Location = new System.Drawing.Point(1029, 52);
             this.panelkaydet.Name = "panelkaydet";
-            this.panelkaydet.Size = new System.Drawing.Size(299, 298);
+            this.panelkaydet.Size = new System.Drawing.Size(447, 298);
             this.panelkaydet.TabIndex = 21;
             this.panelkaydet.Visible = false;
             // 
@@ -318,7 +322,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(170, 29);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 31);
+            this.textBox1.Size = new System.Drawing.Size(200, 31);
             this.textBox1.TabIndex = 0;
             // 
             // label3
@@ -333,7 +337,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 95);
+            this.label4.Location = new System.Drawing.Point(13, 74);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 25);
             this.label4.TabIndex = 2;
@@ -341,9 +345,9 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(170, 92);
+            this.textBox2.Location = new System.Drawing.Point(170, 71);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 31);
+            this.textBox2.Size = new System.Drawing.Size(200, 31);
             this.textBox2.TabIndex = 3;
             // 
             // label5
@@ -365,7 +369,7 @@
             "2"});
             this.comboSube.Location = new System.Drawing.Point(170, 151);
             this.comboSube.Name = "comboSube";
-            this.comboSube.Size = new System.Drawing.Size(100, 33);
+            this.comboSube.Size = new System.Drawing.Size(200, 33);
             this.comboSube.TabIndex = 22;
             // 
             // label6
@@ -388,7 +392,7 @@
             "Doktora"});
             this.comboOgrenciTip.Location = new System.Drawing.Point(170, 202);
             this.comboOgrenciTip.Name = "comboOgrenciTip";
-            this.comboOgrenciTip.Size = new System.Drawing.Size(100, 33);
+            this.comboOgrenciTip.Size = new System.Drawing.Size(200, 33);
             this.comboOgrenciTip.TabIndex = 24;
             // 
             // ogrenciKaydet
@@ -400,6 +404,23 @@
             this.ogrenciKaydet.TabIndex = 16;
             this.ogrenciKaydet.Text = "Kaydet";
             this.ogrenciKaydet.UseVisualStyleBackColor = true;
+            this.ogrenciKaydet.Click += new System.EventHandler(this.ogrenciKaydet_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(13, 113);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(69, 25);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Tc No";
+            // 
+            // TcNo
+            // 
+            this.TcNo.Location = new System.Drawing.Point(170, 110);
+            this.TcNo.Name = "TcNo";
+            this.TcNo.Size = new System.Drawing.Size(200, 31);
+            this.TcNo.TabIndex = 26;
             // 
             // Form1
             // 
@@ -468,6 +489,8 @@
         private System.Windows.Forms.ComboBox comboOgrenciTip;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button ogrenciKaydet;
+        private System.Windows.Forms.TextBox TcNo;
+        private System.Windows.Forms.Label label7;
     }
 }
 
