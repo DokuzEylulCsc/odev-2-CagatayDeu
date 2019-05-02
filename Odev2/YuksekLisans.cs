@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace Odev2
 {
-    class YuksekLisans
+    class YuksekLisans : Ogrenci
     {
+        private string name;
+        private double tc;
+
+        public YuksekLisans(string name, double tc) : base(name, tc)
+        {
+            this.name = name;
+            this.tc = tc;
+        }
+       
     }
 }

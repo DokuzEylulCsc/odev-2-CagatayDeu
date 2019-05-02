@@ -8,6 +8,24 @@ namespace Odev2
 {
     abstract class Ogrenci
     {
+        private string name;
+        private double tc;
+
+        public Ogrenci(string name, double tc)
+        {
+            this.name = name;
+            this.tc = tc;
+        }
+
+        public string Name
+        {
+            get { return name; }
+        }
+
+        public double Tc
+        {
+            get { return tc; }
+        }
 
     }
 

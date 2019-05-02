@@ -95,12 +95,16 @@ namespace Odev2
                 {
                     selectedDers = selectedBolum.secilenDersiBul(listbolumler.SelectedItem.ToString());
                     buttonsType = "ayrıntı";
-                    //selectedBolum.dersEkle(new Ders("Matematik")); // silinecek
-                    //selectedBolum.dersEkle(new Ders("Nesneye Yönelik Programlama")); // silinecek
-                    //foreach (Ders a in selectedBolum.dersler) //var olan dersleri yüklemek için.
-                    //{
-                    //    listdersler.Items.Add(a.Name);
-                    //}
+                    selectedDers.ogrenciEkle(new Doktora("Matematik",123223322)); // silinecek
+                    selectedDers.ogrenciEkle(new YuksekLisans("Nesneye Yönelik Programlama",231231223221)); // silinecek
+                    foreach (Ogrenci a in selectedDers.ogrenciler) //var olan ogrencileri yüklemek için.
+                    {
+                        //listdersler.Items.Add(a.Name);
+                    }
+                    foreach (OgretimElemani a in selectedDers.ogretimGorevlileri) //var olan ogrencileri yüklemek için.
+                    {
+                        //listdersler.Items.Add(a.Name);
+                    }
                     //listbolumler.Visible = false;
                     //listdersler.Visible = true;
                     //button3.Visible = true;
