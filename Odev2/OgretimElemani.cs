@@ -10,11 +10,13 @@ namespace Odev2
     {
         private string name;
         private double tc;
+        private int age;
 
-        public OgretimElemani(string name, double tc)
+        public OgretimElemani(string name, double tc, int age)
         {
             this.name = name;
             this.tc = tc;
+            this.age = age;
         }
 
         public string Name
@@ -25,6 +27,11 @@ namespace Odev2
         public double Tc
         {
             get { return tc; }
+        }
+
+        public int Age
+        {
+            get { return age; }
         }
     }
 }

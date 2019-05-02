@@ -95,15 +95,15 @@ namespace Odev2
                 {
                     selectedDers = selectedBolum.secilenDersiBul(listdersler.SelectedItem.ToString());
                     buttonsType = "ayrıntı";
-                    selectedDers.ogrenciEkle(new Doktora("Burak Yılmaz", 231925221)); // silinecek
-                    selectedDers.ogrenciEkle(new YuksekLisans("Çağatay Kapuağası", 931223221)); // silinecek
-                    selectedDers.ogretimGorevlisiEkle(new OgretimElemani("Neriman Selim", 123223322)); // silinecek
-                    selectedDers.ogretimGorevlisiEkle(new OgretimElemani("Fırat Kaplan",  531223221)); // silinecek
-                    foreach (Ogrenci a in selectedDers.ogrenciler) //var olan ogrencileri yüklemek için.
+                    selectedDers.ogrenciEkle(new Doktora("Burak Yılmaz", 231925221,15,new Sube(1))); // silinecek
+                    selectedDers.ogrenciEkle(new YuksekLisans("Çağatay Kapuağası", 931223221,21, new Sube(1))); // silinecek
+                    selectedDers.ogretimGorevlisiEkle(new OgretimElemani("Neriman Selim", 123223322,35)); // silinecek
+                    selectedDers.ogretimGorevlisiEkle(new OgretimElemani("Fırat Kaplan",  531223221,45)); // silinecek
+                    foreach (Ogrenci a in selectedDers.ogrenciler) //var olan öğrencileri yüklemek için.
                     {
                         listOgrenciler.Items.Add(a.Name);
                     }
-                    foreach (OgretimElemani a in selectedDers.ogretimGorevlileri) //var olan ogrencileri yüklemek için.
+                    foreach (OgretimElemani a in selectedDers.ogretimGorevlileri) //var olan öğretim görevlilerini yüklemek için.
                     {
                         listOgretimElemanlari.Items.Add(a);
                     }
@@ -115,12 +115,8 @@ namespace Odev2
                     button1.Visible = false;
                     button2.Visible = false;
                     button3.Visible = false;
-                    //button3.Visible = true;
-                    //button1.Text = "Ders Aç";
-                    //button2.Text = "Ders'e Git";
-                    //button3.Text = "Ders Kapat";
+                    panelbuttons.Visible = true;
                     label1.Text = selectedDers.Name;
-                    //label2.Text = "Ders İsmi:";
                 }
                 else
                 {
@@ -144,24 +140,6 @@ namespace Odev2
                 }
                 
             }
-            
-
-            //Fakulte yeni = new Fakulte("deneme");
-
-            //deu.fakulteEkle(yeni);
-            //listfakulte.Items.Add(yeni.Name);
-
-            //yeni.bolumEkle(new Bolum("endüstri mühendisliğİ"));
-            //yeni.bolumEkle(new Bolum("Bilgisayar mühendisliği"));
-
-            //foreach(Bolum a in yeni.bolumler)
-            //{
-            //    listbolumler.Items.Add(a.Name);
-            //}
-
-            //listfakulte.Visible = false;
-            //listbolumler.Visible = true;
-
         }
 
         private void kaydet_Click(object sender, EventArgs e)
@@ -214,6 +192,49 @@ namespace Odev2
             
         }
 
-        
+        private void ogrenciEkle_Click(object sender, EventArgs e)
+        {
+            panelkaydet.Visible = true;
+            label5.Visible = true;
+            label6.Visible = true;
+            comboSube.Visible = true;
+            comboOgrenciTip.Visible = true;
+        }
+
+        private void GorevliEkle_Click(object sender, EventArgs e)
+        {
+            panelkaydet.Visible = true;
+            label5.Visible = false;
+            label6.Visible = false;
+            comboSube.Visible = false;
+            comboOgrenciTip.Visible = false;
+        }
+
+        private void ogrenciKaldir_Click(object sender, EventArgs e)
+        {
+            if (listOgrenciler.SelectedIndex != -1)
+            {
+                selectedDers.ogrenciSil(listOgrenciler.SelectedIndex);
+                listOgrenciler.Items.RemoveAt(listOgrenciler.SelectedIndex);
+            } else
+            {
+                MessageBox.Show("Öğrenci seçiniz.");
+            }
+                
+        }
+
+        private void gorevliKaldir_Click(object sender, EventArgs e)
+        {
+            if (listOgretimElemanlari.SelectedIndex != -1)
+            {
+                selectedDers.ogretimGorevlisiSil(listOgretimElemanlari.SelectedIndex);
+                listOgretimElemanlari.Items.RemoveAt(listOgretimElemanlari.SelectedIndex);
+            }
+            else
+            {
+                MessageBox.Show("Öğretim Görevlisi seçiniz.");
+            }
+            
+        }
     }
 }
