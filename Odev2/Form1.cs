@@ -93,25 +93,29 @@ namespace Odev2
             {
                 if (listdersler.SelectedIndex != -1)
                 {
-                    selectedDers = selectedBolum.secilenDersiBul(listbolumler.SelectedItem.ToString());
+                    selectedDers = selectedBolum.secilenDersiBul(listdersler.SelectedItem.ToString());
                     buttonsType = "ayrıntı";
                     selectedDers.ogrenciEkle(new Doktora("Matematik",123223322)); // silinecek
                     selectedDers.ogrenciEkle(new YuksekLisans("Nesneye Yönelik Programlama",231231223221)); // silinecek
+                    listOgrenciler.Items.Add(12345 + "-" + "Selami");
                     foreach (Ogrenci a in selectedDers.ogrenciler) //var olan ogrencileri yüklemek için.
                     {
-                        //listdersler.Items.Add(a.Name);
+                        listOgrenciler.Items.Add(a);
                     }
                     foreach (OgretimElemani a in selectedDers.ogretimGorevlileri) //var olan ogrencileri yüklemek için.
                     {
-                        //listdersler.Items.Add(a.Name);
+                        listOgretimElemanlari.Items.Add(a);
                     }
-                    //listbolumler.Visible = false;
-                    //listdersler.Visible = true;
+                    listdersler.Visible = false;
+                    listOgrenciler.Visible = true;
+                    listOgretimElemanlari.Visible = true;
+                    labelogrenciler.Visible = true;
+                    labelgorevliler.Visible = true;
                     //button3.Visible = true;
                     //button1.Text = "Ders Aç";
                     //button2.Text = "Ders'e Git";
                     //button3.Text = "Ders Kapat";
-                    //label1.Text = selectedBolum.Name;
+                    label1.Text = selectedDers.Name;
                     //label2.Text = "Ders İsmi:";
                 }
                 else
