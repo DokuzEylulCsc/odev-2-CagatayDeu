@@ -8,18 +8,18 @@ namespace Odev2
 {
     abstract class Ogrenci
     {
-        private string name;
+        private string fullname;
         private double tc;
 
-        public Ogrenci(string name, double tc)
+        public Ogrenci(string fullname, double tc)
         {
-            this.name = name;
+            this.fullname = tc + "-" + fullname;
             this.tc = tc;
         }
 
         public string Name
         {
-            get { return name; }
+            get { return fullname; }
         }
 
         public double Tc

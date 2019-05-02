@@ -8,12 +8,12 @@ namespace Odev2
 {
     class YuksekLisans : Ogrenci
     {
-        private string name;
+        private string fullname;
         private double tc;
 
-        public YuksekLisans(string name, double tc) : base(name, tc)
+        public YuksekLisans(string fullname, double tc) : base(fullname, tc)
         {
-            this.name = name;
+            this.fullname = fullname;
             this.tc = tc;
         }
        

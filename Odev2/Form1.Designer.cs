@@ -44,7 +44,23 @@
             this.listOgretimElemanlari = new System.Windows.Forms.ListBox();
             this.labelogrenciler = new System.Windows.Forms.Label();
             this.labelgorevliler = new System.Windows.Forms.Label();
+            this.panelbuttons = new System.Windows.Forms.Panel();
+            this.panelkaydet = new System.Windows.Forms.Panel();
+            this.ogrenciEkle = new System.Windows.Forms.Button();
+            this.ogrenciKaldir = new System.Windows.Forms.Button();
+            this.GorevliEkle = new System.Windows.Forms.Button();
+            this.gorevliKaldir = new System.Windows.Forms.Button();
+            this.dosyayaYazdir = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
+            this.panelbuttons.SuspendLayout();
+            this.panelkaydet.SuspendLayout();
             this.SuspendLayout();
             // 
             // listfakulte
@@ -217,11 +233,146 @@
             this.labelgorevliler.Text = "Öğretim Görevlileri";
             this.labelgorevliler.Visible = false;
             // 
+            // panelbuttons
+            // 
+            this.panelbuttons.Controls.Add(this.dosyayaYazdir);
+            this.panelbuttons.Controls.Add(this.gorevliKaldir);
+            this.panelbuttons.Controls.Add(this.GorevliEkle);
+            this.panelbuttons.Controls.Add(this.ogrenciKaldir);
+            this.panelbuttons.Controls.Add(this.ogrenciEkle);
+            this.panelbuttons.Location = new System.Drawing.Point(621, 314);
+            this.panelbuttons.Name = "panelbuttons";
+            this.panelbuttons.Size = new System.Drawing.Size(236, 258);
+            this.panelbuttons.TabIndex = 20;
+            this.panelbuttons.Visible = false;
+            // 
+            // panelkaydet
+            // 
+            this.panelkaydet.Controls.Add(this.textBox3);
+            this.panelkaydet.Controls.Add(this.label5);
+            this.panelkaydet.Controls.Add(this.textBox2);
+            this.panelkaydet.Controls.Add(this.label4);
+            this.panelkaydet.Controls.Add(this.label3);
+            this.panelkaydet.Controls.Add(this.textBox1);
+            this.panelkaydet.Location = new System.Drawing.Point(903, 314);
+            this.panelkaydet.Name = "panelkaydet";
+            this.panelkaydet.Size = new System.Drawing.Size(299, 258);
+            this.panelkaydet.TabIndex = 21;
+            // 
+            // ogrenciEkle
+            // 
+            this.ogrenciEkle.Location = new System.Drawing.Point(17, 22);
+            this.ogrenciEkle.Name = "ogrenciEkle";
+            this.ogrenciEkle.Size = new System.Drawing.Size(202, 38);
+            this.ogrenciEkle.TabIndex = 0;
+            this.ogrenciEkle.Text = "Öğrenci Ekle";
+            this.ogrenciEkle.UseVisualStyleBackColor = true;
+            // 
+            // ogrenciKaldir
+            // 
+            this.ogrenciKaldir.Location = new System.Drawing.Point(17, 66);
+            this.ogrenciKaldir.Name = "ogrenciKaldir";
+            this.ogrenciKaldir.Size = new System.Drawing.Size(202, 38);
+            this.ogrenciKaldir.TabIndex = 1;
+            this.ogrenciKaldir.Text = "Öğrenci Kaldır";
+            this.ogrenciKaldir.UseVisualStyleBackColor = true;
+            // 
+            // GorevliEkle
+            // 
+            this.GorevliEkle.Location = new System.Drawing.Point(17, 110);
+            this.GorevliEkle.Name = "GorevliEkle";
+            this.GorevliEkle.Size = new System.Drawing.Size(202, 38);
+            this.GorevliEkle.TabIndex = 2;
+            this.GorevliEkle.Text = "Öğretmen Ekle";
+            this.GorevliEkle.UseVisualStyleBackColor = true;
+            // 
+            // gorevliKaldir
+            // 
+            this.gorevliKaldir.Location = new System.Drawing.Point(17, 154);
+            this.gorevliKaldir.Name = "gorevliKaldir";
+            this.gorevliKaldir.Size = new System.Drawing.Size(202, 38);
+            this.gorevliKaldir.TabIndex = 3;
+            this.gorevliKaldir.Text = "Öğretmen Kaldır";
+            this.gorevliKaldir.UseVisualStyleBackColor = true;
+            // 
+            // dosyayaYazdir
+            // 
+            this.dosyayaYazdir.Location = new System.Drawing.Point(17, 198);
+            this.dosyayaYazdir.Name = "dosyayaYazdir";
+            this.dosyayaYazdir.Size = new System.Drawing.Size(202, 38);
+            this.dosyayaYazdir.TabIndex = 4;
+            this.dosyayaYazdir.Text = "Dosyaya Yazdır";
+            this.dosyayaYazdir.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(170, 29);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 31);
+            this.textBox1.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(131, 25);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "İsim Soyisim";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 95);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 25);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Yaş";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(170, 92);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 31);
+            this.textBox2.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 154);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 25);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Şube";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(170, 151);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 31);
+            this.textBox3.TabIndex = 5;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4"});
+            this.comboBox1.Location = new System.Drawing.Point(1208, 409);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 33);
+            this.comboBox1.TabIndex = 22;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1596, 865);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.panelkaydet);
+            this.Controls.Add(this.panelbuttons);
             this.Controls.Add(this.labelgorevliler);
             this.Controls.Add(this.labelogrenciler);
             this.Controls.Add(this.listOgretimElemanlari);
@@ -241,6 +392,9 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panelbuttons.ResumeLayout(false);
+            this.panelkaydet.ResumeLayout(false);
+            this.panelkaydet.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,6 +417,20 @@
         private System.Windows.Forms.ListBox listOgretimElemanlari;
         private System.Windows.Forms.Label labelogrenciler;
         private System.Windows.Forms.Label labelgorevliler;
+        private System.Windows.Forms.Panel panelbuttons;
+        private System.Windows.Forms.Button dosyayaYazdir;
+        private System.Windows.Forms.Button gorevliKaldir;
+        private System.Windows.Forms.Button GorevliEkle;
+        private System.Windows.Forms.Button ogrenciKaldir;
+        private System.Windows.Forms.Button ogrenciEkle;
+        private System.Windows.Forms.Panel panelkaydet;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

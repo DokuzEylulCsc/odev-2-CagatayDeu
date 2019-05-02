@@ -9,9 +9,9 @@ namespace Odev2
     class OgretimElemani
     {
         private string name;
-        private int tc;
+        private double tc;
 
-        public OgretimElemani(string name, int tc)
+        public OgretimElemani(string name, double tc)
         {
             this.name = name;
             this.tc = tc;
@@ -22,7 +22,7 @@ namespace Odev2
             get { return name; }
         }
 
-        public int Tc
+        public double Tc
         {
             get { return tc; }
         }

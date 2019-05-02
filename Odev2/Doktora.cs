@@ -8,12 +8,12 @@ namespace Odev2
 {
     class Doktora : Ogrenci
     {
-        private string name;
+        private string fullname;
         private double tc;
 
-        public Doktora(string name, double tc) : base(name, tc)
+        public Doktora(string fullname, double tc) : base(fullname, tc)
         {
-            this.name = name;
+            this.fullname = fullname;
             this.tc = tc;
         }
         
